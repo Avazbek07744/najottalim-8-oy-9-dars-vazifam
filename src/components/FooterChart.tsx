@@ -1,4 +1,4 @@
-import {FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import img from '../assets/shtrixCode.png';
 
@@ -14,9 +14,13 @@ const FooterChart: FC = () => {
 
     useEffect(() => {
         fetch("https://trello.vimlc.uz/competence")
-        .then((res)=>res.json())
+            .then((res) => res.json())
             .then((data) => {
-                setCompetenceData(data);
+                if (Array.isArray(data)) {
+                    setCompetenceData(data); // Assuming the response is an array
+                } else {
+                    console.error("Invalid data structure:", data);
+                }
                 setLoading(false);
             })
             .catch((error) => {
@@ -34,7 +38,7 @@ const FooterChart: FC = () => {
             <h2 className='text-4xl font-bold flex gap-2.5'>
                 <p className='w-3 h-10 bg-blue-800'></p>Компетенцияларнинг намоён булиши
             </h2>
-            <div className="flex items-center">
+            <div className="flex items-center justify-center mt-6">
                 <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
                     {competenceData.length > 0 ? (
                         competenceData.map((item, index) => (
@@ -81,7 +85,7 @@ const FooterChart: FC = () => {
                         <p className="col-span-3 text-center">Malumot mavjud emas!</p>
                     )}
                 </div>
-                <img src={img} alt="QR Code" />
+                <img src={img} alt="QR Code" className="ml-6" />
             </div>
         </div>
     );
