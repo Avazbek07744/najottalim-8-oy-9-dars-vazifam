@@ -58,7 +58,6 @@ const FooterChart: FC = () => {
                                                     size: "60%",
                                                 },
                                                 dataLabels: {
-                                                    showOn: "value",
                                                     name: {
                                                         show: false,
                                                     },

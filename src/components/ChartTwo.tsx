@@ -88,7 +88,7 @@ const ChartTwo: React.FC = () => {
             <div className="flex gap-8 items-center max-w-[1312px] mx-auto">
                 <div className="w-full max-w-[500px]">
                     <Chart
-                        options={barChartOptionsLeft}
+                        option ={barChartOptionsLeft}
                         series={[{ data: leftData }]}
                         type="bar"
                         height={350}
@@ -97,7 +97,7 @@ const ChartTwo: React.FC = () => {
 
                 <div className="w-full max-w-[300px]">
                     <Chart
-                        options={{
+                        option={{
                             chart: { type: "radar", height: 350 },
                             xaxis: { categories: categories },
                         }}
@@ -112,7 +112,7 @@ const ChartTwo: React.FC = () => {
 
                 <div className="w-full max-w-[500px]">
                     <Chart
-                        options={barChartOptionsRight}
+                        option ={barChartOptionsRight}
                         series={[{ data: rightData }]}
                         type="bar"
                         height={350}
